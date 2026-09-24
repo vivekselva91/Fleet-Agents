@@ -1,6 +1,6 @@
 # Fleet Agents
 
-**Cloud-to-vehicle coordination for autonomous fleets.** A multi-agent engine that decides, every two minutes and for every vehicle, whether to reroute around traffic, divert to a charger, message the rider, or hand control to a remote operator — and records why.
+**Cloud-to-vehicle coordination for autonomous fleets.** A multi-agent engine that decides, every two minutes and for every vehicle, whether to reroute around traffic, divert to a charger, message the rider, or hand control to a remote operator and records why.
 
 Pure Python, no dependencies, deterministic and replayable. `python -m fleetagents.cli simulate` runs a full evening-peak scenario in under a second.
 
@@ -60,7 +60,7 @@ then highest utility × confidence
 ties and zero-utility         → no action, vehicle continues
 ```
 
-Guardrails run *before* arbitration and veto with a written reason: confidence below the floor, reroute limit reached, detour exceeding the rider's tolerance, or an action still inside its cooldown. Vetoes are recorded, not silently dropped — a decision you can't audit is a decision you can't ship.
+Guardrails run *before* arbitration and veto with a written reason: confidence below the floor, reroute limit reached, detour exceeding the rider's tolerance, or an action still inside its cooldown. Vetoes are recorded, not silently dropped a decision you can't audit is a decision you can't ship.
 
 ```mermaid
 sequenceDiagram
