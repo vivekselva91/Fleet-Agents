@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fleet-agents"
+version = "0.1.0"
+description = "Multi-agent coordination engine for autonomous vehicle fleets: rerouting, charging, rider intent and remote assistance handoffs."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Vivek Selvakumar" }]
+keywords = ["agents", "autonomous-vehicles", "fleet", "routing", "orchestration", "agentic-ai"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Developers",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["ruff>=0.4"]
+
+[project.scripts]
+fleetagents = "fleetagents.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+# pycodestyle errors, pyflakes, import order. Deliberately not the modernisation
+# rules: the package supports Python 3.9, where typing.Dict is still correct.
+select = ["E", "F", "I"]
